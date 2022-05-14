@@ -4,6 +4,18 @@ const express = require('express')
 const r_usuarios = require('./src/rutas/r_usuarios.js')
 const r_productos = require('./src/rutas/r_productos.js')
 
+const db = require('./database.js')
+
+//Verificamos conexión con base de datos
+db.on('error', (error)=>{
+    console.log('se ha producido un error al conectar con la base de datos ' 
+    + error)
+})
+
+db.on('connected', ()=>{
+    console.log('la base de datos se ha conectado de muerte ')
+})
+
 
 //Aplicación del servidor
 const app = express()

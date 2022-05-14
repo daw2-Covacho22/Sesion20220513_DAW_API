@@ -19,3 +19,5 @@ r_usuarios.put('/:id', editarUsuarioId)
 r_usuarios.delete('/:id', borrarUsuarioId)
 
 module.exports = r_usuarios
+
+
