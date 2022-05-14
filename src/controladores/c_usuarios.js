@@ -1,6 +1,9 @@
 
+
 module.exports = {
     leerUsuarios: (req, res)=>{
+        //leer de la base de dtos
+        //Creamos el schema
         res.send('leer usuario')
     },
     leerUsuarioId: (req, res)=>{
