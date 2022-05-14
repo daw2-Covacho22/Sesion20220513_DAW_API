@@ -6,8 +6,7 @@ const DB_USER = 'covacho_sara'
 const DB_PASS =  'Daw2_2021'
 const DB_NAME = 'bd_daw_productos'
 
-const uri = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.olbhw.mongodb.net/
-${DB_NAME}?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.olbhw.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`
 
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})

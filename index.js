@@ -1,8 +1,8 @@
 //Librerias
 const express = require('express')
 
-const r_usuarios = require('./src/rutas/r_usuarios.js')
-const r_productos = require('./src/rutas/r_productos.js')
+const r_usuarios = require('./src/rutas/r_usuarios')
+const r_productos = require('./src/rutas/r_productos')
 
 const db = require('./database.js')
 
