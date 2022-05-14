@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 //Creamos el esquema
 const usuarioSchema = new mongoose.Schema({
     nombre: String,
-    apellidos: String,
+    apellido: String,
     email: String
 })
 

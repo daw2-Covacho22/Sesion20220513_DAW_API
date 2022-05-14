@@ -14,16 +14,65 @@ module.exports = {
             })
         }
     },
-    leerUsuarioId: (req, res)=>{
-        res.send('Estás en leerUsuarioId')
+    leerUsuarioId: async (req, res)=>{
+        //leer de la base de datos con id
+        try {
+            const id = req.params.id
+            const usuarioEncontrado = await m_usuarios.findById(id)
+            res.json(usuarioEncontrado)
+        } catch (error) {
+            res.json({
+                error: error,
+                mensaje: 'Ohhhhh, algo ha ido mal en la petición con la bd ' + error
+            })
+        }
     },
-    crearUsuario: (req, res)=>{
-        res.send('Estás en crearUsuario')
+    crearUsuario: async (req, res)=>{
+        //Crear usuario 
+        const usuario = new m_usuarios({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email
+        })
+        try {
+            const usuarioGuardado = await usuario.save()
+            res.json(usuarioGuardado)
+        } catch (error) {
+            res.json({
+                error: error,
+                mensaje: 'Ohhhhh, algo ha ido mal en la petición con la bd ' + error
+            })
+        }
     },
-    editarUsuarioId: (req, res)=>{
-        res.send('Estás en editarUsuarioId')
+    editarUsuarioId: async (req, res)=>{
+        //editar de la base de datos un elemento
+        try {
+            const id = req.params.id
+            const usuario = {
+                nombre: req.body.nombre,
+                apellidos: req.body.apellidos,
+                email: req.body.email
+            }
+            const usuarioEncontrado = await m_usuarios.findByIdAndUpdate(id, usuario)
+            res.json(usuarioEncontrado)
+        } catch (error) {
+            res.json({
+                error: error,
+                mensaje: 'Ohhhhh, algo ha ido mal en la petición con la bd ' + error
+            })
+        }
     },
-    borrarUsuarioId: (req, res)=>{
-        res.send('Estás en borrarUsuarioId')
+    borrarUsuarioId: async (req, res)=>{
+        //borrar de la base de datos
+        try {
+            const id = req.params.id
+            const usuarioEncontrado = await m_usuarios.findByIdAndDelete(id)
+            res.json(usuarioEncontrado)
+        } catch (error) {
+            res.json({
+                error: error,
+                mensaje: 'Ohhhhh, algo ha ido mal en la petición con la bd ' + error
+            })
+        }
     }
 }
